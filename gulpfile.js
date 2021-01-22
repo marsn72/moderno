@@ -16,7 +16,7 @@ let path = {
     css: source_folder + '/scss/style.scss',
     js: source_folder + '/js/app.js',
     img: source_folder + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
-    fonts: source_folder + '/fonts/*.ttf',
+    fonts: source_folder + '/fonts/*.*',
   },
   watch: {
     html: source_folder + '/**/*.html',
@@ -114,7 +114,7 @@ function fonts() {
 }
 
 gulp.task('fonter', function () {
-  return gulp.src([source_folder + '/fonts/*.otf'])
+  return gulp.src([source_folder + '/fonts/*.*'])
       .pipe(fonter({
         formats: ['ttf']
       }))
@@ -135,9 +135,9 @@ gulp.task('svgSprite', function () {
 });
 
 function fontsStyle() {
-  let file_content = fs.readFileSync(source_folder + '/scss/fonts.scss');
+  let file_content = fs.readFileSync(source_folder + '/scss/_fonts.scss');
   if (file_content == '') {
-    fs.writeFile(source_folder + '/scss/fonts.scss', '', cb);
+    fs.writeFile(source_folder + '/scss/_fonts.scss', '', cb);
     return fs.readdir(path.build.fonts, function(err, items) {
       if (items) {
         let c_fontname;
@@ -145,7 +145,7 @@ function fontsStyle() {
           let fontname = items[i].split('.');
           fontname = fontname[0];
           if (c_fontname != fontname) {
-            fs.appendFile(source_folder + '/scss/fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
+            fs.appendFile(source_folder + '/scss/_fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
           }
           c_fontname = fontname;
         }
