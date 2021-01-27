@@ -69,4 +69,56 @@
   }
 }
 
+.search {
+  min-height: 533px;
+  background-size: cover;
+  background-position: center;
+  &__inner {
+    padding: 155px 0px 100px 0px;
+    color: #ffffff;
+    text-align: center;
+  }
+  &__inner-title {
+    margin-bottom: 10px;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 72px;
+  }
+  &__inner-text {
+    margin-bottom: 50px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+  }
+  &__inner-form {
+    position: relative;
+    margin: 0 auto;
+    max-width: 670px;
+    input{
+      display: block;
+      width: 100%;
+      height: 56px;
+      padding-left: 25px;
+      padding-right: 60px;
+      box-shadow: 0px 1px 10px 0px rgba(124, 178, 64, 0.75);
+      border-radius: 4px;
+      border: none;
+      font-size: 14px;
+      font-weight: 500;
+      &::placeholder{
+        color: #90a4ae;
+      }
+    }
+    button{
+      position: absolute;
+      border: none;
+      background: transparent;
+      right: 20px;
+      top: 16px;
+    }
+  }
+}
+
+
+
 
